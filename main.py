@@ -34,6 +34,7 @@ class Spring:
             
         self.string.x, self.string.y, self.string.x2, self.string.y2, = *self.node1.position, *self.node2.position
 
+
 class Circle(Spring):
     def __init__(self, x:float, y:float, radius:float, mass:float, vel_x:float, vel_y:float, color):
         self.ball = pg.shapes.Circle(x, y, radius, color=color, batch = batch)
@@ -130,8 +131,8 @@ for i in range(1, 6):
 connections += [Spring(balls[0], balls[1], 400, 1)]
 connections += [Spring(balls[1], balls[2], 400, 1)]
 
-g = 40
 precision = 4
+g = 40
 fps = 60
 
 for ball in balls:
