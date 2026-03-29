@@ -120,18 +120,19 @@ class Circle(Spring):
                 
 # x, y, radius, mass, vel_x, vel_y, color
 balls = []
-for i in range(1, 49):
-    hls =  hls_to_rgb((i-1)/48, .5, .5)
+for i in range(1, 6):
+    hls =  hls_to_rgb((i-1)/5, .5, .5)
     col = tuple(int(255*c) for c in hls)
+    
     # balls += [Circle(20*i, 20*i, 20, 1, i, i, col)]
     balls += [Circle(randint(0, width), randint(0, height), 20, 1, 0, 0, col)]
 
-# connections += [Spring(balls[0], balls[1], 400, 1)]
-# connections += [Spring(balls[1], balls[2], 400, 1)]
+connections += [Spring(balls[0], balls[1], 400, 1)]
+connections += [Spring(balls[1], balls[2], 400, 1)]
 
 g = 40
 precision = 4
-fps = 30
+fps = 60
 
 for ball in balls:
     pg.clock.schedule_interval(ball.move, 1/fps)
